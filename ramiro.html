@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profesor Ramiro</title>
+    <style>
+        /* Estilos CSS */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        #titulo {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #f0f0f0;
+        }
+        #contenedor {
+            display: flex;
+            flex-direction: row-reverse; /* Cambio de dirección de la fila */
+        }
+        #materias {
+            flex: 1;
+            padding: 20px;
+        }
+        #video {
+            flex: 2;
+            padding: 20px;
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        video {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="titulo">
+        <h1>Profesor Ramiro</h1>
+    </div>
+    <div id="contenedor">
+        <div id="materias">
+            <h2>Materias</h2>
+            <select id="selectMateria" onchange="cargarVideo()">
+                <option value="m1v1">Materia 1 - Clase 1</option>
+                <option value="m1v2">Materia 1 - Clase 2</option>
+                <option value="m1v3">Materia 1 - Clase 3</option>
+                <option value="m2v1">Materia 2 - Clase 1</option>
+                <option value="m2v2">Materia 2 - Clase 2</option>
+                <option value="m2v3">Materia 2 - Clase 3</option>
+                <option value="m3v1">Materia 3 - Clase 1</option>
+                <option value="m3v2">Materia 3 - Clase 2</option>
+                <option value="m3v3">Materia 3 - Clase 3</option>
+            </select>
+        </div>
+        <div id="video">
+            <h2>Video</h2>
+            <video id="videoPlayer" controls>
+                <source src="" type="video/mp4">
+                Tu navegador no admite el elemento de video.
+            </video>
+        </div>
+    </div>
+
+    <script>
+        // Función para cargar el video seleccionado
+        function cargarVideo() {
+            var selectMateria = document.getElementById("selectMateria");
+            var videoPlayer = document.getElementById("videoPlayer");
+            var videoSeleccionado = selectMateria.value + ".mp4";
+            videoPlayer.src = "videos/" + videoSeleccionado;
+            videoPlayer.play();
+        }
+    </script>
+</body>
+</html>
